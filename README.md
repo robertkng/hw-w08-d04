@@ -2,6 +2,8 @@
 
 ![](https://i.imgur.com/fzYYrwf.gif)
 
+This gif is not relevant to the homework, but OMFG.  The way it shakes and flips itself.  I die every time.  Anyways...
+
 Gerard Von Schtieffel is back - he wants a more robust website now that is capable of storing and showing data for movies that are currently playing at his theater.
 
 What the client wants, the client gets.

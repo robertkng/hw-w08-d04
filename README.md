@@ -10,13 +10,21 @@ What the client wants, the client gets.
 
 Where are the files? Where are the files?!?! No files.
 
-You're going to get some more experience creating your file structure and initializing all your files, creating a server, adding middleware, and using AJAX!
+You're going to get some more experience creating your file structure and initializing all your files, creating a server, adding middleware, and using fetch!
 
 Treat this as a mini-project! Do some planning beforehand, review your code from today, and ask as many questions as you can about features, requirements, etc.
 
 ## Completion
 
-There are **7 parts** to complete. Your pull request should say XX / 7 for completion rating.
+There are **7 parts** to complete. 
+
+As a reminder, when you submit the homework, make sure you are including:
+* A __LINK__ to your homework (NOT SSH KEY).
+* Completion out of 5.
+* Comfortability out of 5.
+* A win.
+* A challenge.
+* Whatever else is on your mind!
 
 ## Assignment
 
@@ -41,6 +49,8 @@ possible high - level steps to follow
   data
   - Setup a new express app, and create all the REST routes as a
   separate router.
+  - You should be creating your own API that returns JSON's on the appropriate routes.
+  - You should be asychronously retrieving data from that API with fetch on the front end.
   - Create files for all of the views you will need, with some dummy
   HTML and render them from the correct routes.
   - Hook up postgres to the express application through a separate

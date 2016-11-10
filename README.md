@@ -1,6 +1,6 @@
 # Müvie Haus 2: Müvie Haurder
 
-![](https://media.giphy.com/media/QbumCX9HFFDQA/giphy.gif)
+![](https://i.imgur.com/fzYYrwf.gifv)
 
 Gerard Von Schtieffel is back - he wants a more robust website now that is capable of storing and showing data for movies that are currently playing at his theater.
 

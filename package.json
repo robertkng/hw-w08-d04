@@ -1,0 +1,27 @@
+{
+  "name": "hw-w08-d04",
+  "version": "1.0.0",
+  "description": "![](https://i.imgur.com/fzYYrwf.gif)",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11",
+    "morgan": "^1.7.0",
+    "node-fetch": "^1.6.3",
+    "path": "^0.12.7",
+    "pg-promise": "^5.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.generalassemb.ly:rn028940/hw-w08-d04.git"
+  },
+  "author": "",
+  "license": "ISC"
+}

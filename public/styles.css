@@ -1,0 +1,15 @@
+#wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+#border {
+  border: solid blue;
+  /*flex-wrap: wrap;*/
+  /*overflow: auto;*/
+}
+
+
+h2, h3 {
+  font-size: 40px;
+}

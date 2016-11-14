@@ -89,4 +89,5 @@ function addMovie(payload) {
 $(() => {
   getAllMovies().then(renderMovies),
   searchMovies();
+  addMovie();
 });

@@ -15,30 +15,22 @@ function renderMovies(movies) {
     $movieTemplate.find('.runtime').text(movies[i].runtime);
     $movieTemplate.find('.movie-picture img').attr('src', movies[i].poster);
     $container.append($movieTemplate);
+    const $editButton = $('<button>').text('edit');
+    $editButton.attr('id', movies.id);
+    $editButton.on('click', editMovie);
+    const $deleteButton = $('<button>').text('delete');
+    $deleteButton.attr('id', movies.id);
+    $deleteButton.on('click', deleteMovie);
 
-  const $savedResults = $('.saved-results');
-  const $addButton = $('<button>').text('add');
-    $addButton.attr('id', movies[i].id);
-    $addButton.on('click', addMovie);
 
-    // const $editButton = $('<button>').text('edit');
-    // $editButton.attr('id', movies[i].id);
-    // $editButton.on('click', editMovie);
 
-    // const $deleteButton = $('<button>').text('delete');
-    // $deleteButton.attr('id', movies[i].id);
-    // $deleteButton.on('click', deleteMovie);
-
-    $savedResults.append($addButton);
-    // $addButton.append($editButton);
-    // $editButton.append($deleteButton);
+    $movieTemplate.append($editButton);
 
   }
 }
 
 function searchMovies(){
   // console.log('public/script.js');
-  const $button = $('button');
   const $title = $('input');
 
   $.ajax({
@@ -51,10 +43,8 @@ function searchMovies(){
   })
   // sends data once function fully runs
   .done(data => {
-    // handleResponse(data);
-    let $poster = $('<ul>');
-    // assign image to poster
-    // $('img').attr('src', imagePath);
+    console.log('data: ', data)
+    let $poster = $('<img>');
     $poster.attr('src', `${data.Poster}`);
     let $title = $('<ul>');
     $title.text(`Title: ${data.Title}`);
@@ -67,16 +57,29 @@ function searchMovies(){
     $('#movies').append($title);
     $('#movies').append($rated);
     $('#movies').append($runtime);
-    console.log('Data: ', data);
+    const $savedResults = $('.saved-results').empty();
+    const $addButton = $('<button>').text('add');
+    $addButton.attr('id', movies.id);
+    $addButton.on('click', () => {
+      const movieInfo = {
+        title: data.Title,
+        poster : data.Poster,
+        rating: data.imdbRating,
+        runtime: data.Runtime,
+      };
+      addMovie(movieInfo);
+    });
+
+    $savedResults.append($addButton);
   })
   .fail(err => {
     console.log('Error', err);
   })
-  $button.on('click', searchMovies);
-}
+} // searchMovies
 
 function addMovie(payload) {
-  return fetch('/api/movies', {
+  // console.log(payload)
+  fetch('/api/movies', {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -85,9 +88,28 @@ function addMovie(payload) {
   });
 }
 
+function editMovie(edit) {
+  fetch('/api/movies/edit/', {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'PUT',
+    body: JSON.stringify(edit)
+  })
+  .then(renderMovies);
+}
+
+function deleteMovie(delete) {
+  fetch('/api/movies/:id', {
+    method: 'DELETE',
+  })
+  .then(renderMovies);
+}
 
 $(() => {
-  getAllMovies().then(renderMovies),
-  searchMovies();
-  addMovie();
+  getAllMovies().then(renderMovies)
+  const $button = $('button');
+  $button.on('click', searchMovies);
+  editMovie();
+  deleteMovie();
 });

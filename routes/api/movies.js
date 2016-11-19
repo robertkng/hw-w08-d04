@@ -1,9 +1,8 @@
 console.log('routes/api/scripts');
 const express = require('express');
 const router = express.Router();
-const { getAllMovies, addMovie } = require('../../models/movies');
+const { getAllMovies, addMovie, editMovie, deleteMovie } = require('../../models/movies');
 const { searchMovie } = require('../../services/services');
-// sendJSONresp = (req, res) => res.json(res.rows);
 
 router.get('/movies', searchMovie, (req, res) => {
   res.render('/movies', {
@@ -14,9 +13,16 @@ router.get('/movies', searchMovie, (req, res) => {
 router.get('/', getAllMovies, (req, res) => {
   res.json(res.movies || []);
 });
-  // .get(getAllMovies, sendJSONresp)
 
 router.post('/', addMovie, (req, res) => {
+  res.json(res.movies || []);
+})
+
+router.put('/:id', editMovie, (req,res) => {
+  res.json(res.movies || []);
+})
+
+router.delete('/:id', deleteMovie, (req,res) => {
   res.json(res.movies || []);
 })
 
